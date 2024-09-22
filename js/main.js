@@ -1,23 +1,22 @@
-class BlackJackGame{
-    constructor(){
 
    
 //https://www.deckofcardsapi.com/
 // declare variables
-    this.NumDecks =1;
-
-
-
+    let numDecks =1;
+    console.log(`initial amount of decks is ${numDecks}`);
 //event listeners
-    this.DeckCountSubmit = document.getElementById("DeckCountButton").addEventListener("click", selectionDeckCount);
-
-
-
-
+    document.getElementById("deckCountButton").addEventListener("click", selectionDeckCount);
+    
+    function selectionDeckCount(){
+        const deckCount = document.getElementById("deckCountButton").value;
+        console.log("selectionDeckCount is being called",`total amount of decks is ${deckCount}`);
+        const newGame = new BlackJackGame(deckCount)
     }
-    selectionDeckCount(){
-        this.NumDecks = document.querySelectorAll("#DeckCountInput").value;
-        fetch(`https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=${NumDecks}`)
+    class BlackJackGame{
+    constructor(decks){
+
+        numDecks = document.querySelectorAll("#DeckCountInput").value;
+        fetch(`https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=${numDecks}`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -34,3 +33,4 @@ class BlackJackGame{
         .catch (err => console.log(err));
     }
 }
+
