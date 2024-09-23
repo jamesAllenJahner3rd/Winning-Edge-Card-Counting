@@ -1,0 +1,12 @@
+dh{ 
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+dd{
+    display: none;
+}
+
+dt:hover+ dd {
+display: inline;
+}
