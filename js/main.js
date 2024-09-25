@@ -1,36 +1,44 @@
+let numDecks =1;
+let theDeck=''
+console.log(`initial amount of decks is ${numDecks}`);
+function pop(){ console.log(`initial amount of decks is ${numDecks}`);}
+// pop()
+
 
    
-//https://www.deckofcardsapi.com/
+// //https://www.deckofcardsapi.com/
 // declare variables
-    let numDecks =1;
-    console.log(`initial amount of decks is ${numDecks}`);
+ let  newGame= {};
 //event listeners
-    document.getElementById("deckCountButton").addEventListener("click", selectionDeckCount);
-    
+document.addEventListener("DOMContentLoaded", () => {
+document.getElementById("deckCountButton").addEventListener("click", (e) => selectionDeckCount());
+document.getElementById("deal").addEventListener("click", (e) => newGame.deal());
+})
+
     function selectionDeckCount(){
-        const deckCount = document.getElementById("deckCountButton").value;
-        console.log("selectionDeckCount is being called",`total amount of decks is ${deckCount}`);
-        const newGame = new BlackJackGame(deckCount)
+        const deckCount = document.getElementById("DeckCountInput").value;
+        console.log("selectionDeckCount is being called",`total amount of decks is ${numDecks}`);
+        newGame = new BlackJackGame(deckCount)
     }
     class BlackJackGame{
     constructor(decks){
 
-        numDecks = document.querySelectorAll("#DeckCountInput").value;
-        fetch(`https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=${numDecks}`)
+        numDecks = decks
+        fetch(`https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`)//${numDecks}`)
         .then(response => response.json())
         .then(data => {
+            theDeck =data.deck_id
             console.log(data);
         })
         .catch(err => console.log(err));
 
     }
     deal(){
-        fetch("https://www.deckofcardsapi.com/api/deck/<<deck_id>>/draw/?count=2")
+            fetch(`https://www.deckofcardsapi.com/api/deck/${theDeck}/draw/?count=2`)
         .then(response => response.json())
         .then(data =>{
             console.log(data);
         })
         .catch (err => console.log(err));
     }
-}
-
+ }

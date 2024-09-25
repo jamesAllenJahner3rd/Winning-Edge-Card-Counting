@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta title="description" content="Practice how to count cards">
-        <meta title="keywords" content =" Blackjack card counting,
+        <meta name="description" content="Practice how to count cards">
+        <meta name="keywords" content =" Blackjack card counting,
             How to count cards in blackjack,
             Card counting strategies,
             Blackjack counting systems,
@@ -25,17 +25,17 @@
         ">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <title>Winning Edge Card Counting</title>
         <link rel="stylesheet" href="/css/style.css">
     </head>
     <body>
-        <dh>Key words
+        <dl>
             <dt>Running Count:</dt>
                 <dd>The total value of all cards that have been dealt.</dd>
             <dt>True Count: </dt>
                 <dd>A running count adjusted for the number of decks remaining.</dd>
             <dt>High-Low (Hi-Lo) System:</dt>
-                <dd> A popular card counting system where high cards (10, Jack, Queen, King, Ace) are counted as -1, low cards (2-6) as +1, and 7-9 as 01.</dd>
+                <dd> A popular card counting system where high cards (10, Jack, Queen, King, Ace) are counted as -1, low cards (2-6) as +1, and 7-9 as 0.</dd>
             <dt>Deck Penetration:</dt>
                 <dd> The percentage of the deck that has been dealt before shuffling.</dd>
             <dt>Bet Spread:</dt>
@@ -50,28 +50,33 @@
                 <dd>A more advanced technique that involves tracking groups of cards through the shuffle.</dd>
                 <dt>Ace Sequencing:</dt>
                     <dd> Predicting when an Ace will be dealt based on previous cards.</dd>
-            </dt>
-        </dh>
+            </dh>
     <main>
         <fieldset>
-            <legend>the important methods</legend>
-        <form action="">
-            <label>How many decks do you want to play with? Casino will likely use 6. </label><input id= DeckCountInput type="number" value=""> <input id= deckCountButton type="submit" value="Submit" >
+            <legend>The Important Methods</legend>
+        <form action=""method="post">
+            <label for = 'DeckCountInput'>How many decks do you want to play with? Casino will likely use 6. </label><input id= DeckCountInput type="number" value="" > <input id= deckCountButton type="button" value="Start New Game" >
         </form>
         <form> 
-            <input  id="Bet" type="submit" value="Place Your Bet">
-            <input  id="deal" type="submit" value="Deal">
-            <input  id="stand" type="submit" value="Stand">
-            <input  id="hit" type="submit" value="hit">
-            <input  id="doubleDown" type="submit" value="Double Down">
-            <input  id="Split" type="submit" value="Split">
+            <input  id="Bet" type="button" value="Place Your Bet">
+            <input  id="deal" type="button" value="Deal">
+            <input  id="stand" type="button" value="Stand">
+            <input  id="hit" type="button" value="hit">
+            <input  id="doubleDown" type="button" value="Double Down">
+            <input  id="Split" type="button" value="Split">
 
         </form>
     </fieldset>
     <section id='dealer'>
-        
+        <ul>
+           
+        </ul>
     </section>
-
+    <section id='player'>
+        <ul>
+           
+        </ul>
+    </section>
     </main>
 
 
