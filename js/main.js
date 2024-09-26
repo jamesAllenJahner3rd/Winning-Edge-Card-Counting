@@ -31,14 +31,30 @@ document.getElementById("deal").addEventListener("click", (e) => newGame.deal())
         .then(response => response.json())
         .then(data =>{
             console.log(data);
+             for(let card in data.cards){ 
+                console.log(card, data.cards[card].image);
+             } 
         })
         .catch (err => console.log(err));
-        createlem
     }
     layDownCard(whosHand){
-        theSpot = document.getElementById(`${whosHand}`)
+        addElement(whosHand)
         theSpot.createElement(`<li id =${cardCount}>`)
 
     }
+    addElement(theId) {
+        // create a new div element
+        const newDiv = document.createElement("li");
+      
+        // and give it some content
+        const newContent = document.createTextNode("Hi there and greetings!");
+      
+        // add the text node to the newly created div
+        newDiv.appendChild(newContent);
+      
+        // add the newly created element and its content into the DOM
+        const whosPile = document.getElementById(theId);
+        document.body.insertAdjacentElement(beforeend, whosPile);
+      }
  }
 
