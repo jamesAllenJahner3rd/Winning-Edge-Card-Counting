@@ -41,30 +41,40 @@ document.getElementById("deal").addEventListener("click", (e) => newGame.deal())
             .then(data =>{
                 console.log(data);
                  for(let card in data.cards){ 
-                    this.layDownCard(this.player[data.cards.indexOf(card)%2],data.cards[card].image)
-                    console.log(card, d);
+                    console.log('cardKey', card)
+                    console.log(this.player[card%2],data.cards[card].image)
+                    this.layDownCard(this.player[card%2],data.cards[card].image)
+                    ;
                  } 
             })
             .catch (err => console.log(err));
         }
         addElement(theId,cardImg) {
-            // create a new div element
-            const newDiv = document.createElement("li");
+             // create new elements to hold the images of cards
+            const img    = document.createElement("img");
+            const newDiv = document.createElement("li" );
+            let  playerID = document.getElementById(theId)
+            let newContent='';
+           
+            
             // and give it some content
-            if (document.getElementById(theId).hasChildNodes()) {
-                const newContent = cardImg
+            console.log("theId has children?", playerID.hasChildNodes())
+            if (playerID.hasChildNodes()) {
+                newContent = cardImg
             }else{
-                const newContent = 'https://www.deckofcardsapi.com/static/img/back.png'
+                newContent = 'https://www.deckofcardsapi.com/static/img/back.png'
             }
 
-            newDiv.appendChild(("img")).setAttribute("src",newContent)
+            console.log("the link is:", newContent)
+           //let setImg = appendChild((img)).setAttribute("src",newContent)
         
             // add the text node to the newly created div
-            newDiv.appendChild(newContent);
+            //newDiv.appendChild(newContent);
         
             // add the newly created element and its content into the DOM
             const whosPile = document.getElementById(theId);
-            document.body.insertAdjacentElement(beforeend, whosPile);
+            playerID.insertAdjacentElement('beforeend', newDiv);
+            playerID.li.insertAdjacentElement('beforeend', img);
         }
     }
 
